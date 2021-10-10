@@ -40,4 +40,21 @@ public class ServicoVendas {
         }
         throw new Exception((cliente.getNome() + " ainda não realizou nenhuma compra!"));
     }
+
+    public static List<Venda> pesquisarVendasDoVendedor(String cpf) throws Exception {
+
+        Vendedor vendedor = ServicoVendedores.pesquisarCpfVendedor(cpf);
+
+        List<Venda> vendasDoVendedor = new ArrayList<>();
+
+        for (Venda referenciaVenda : vendas) {
+            if (cpf.equalsIgnoreCase(referenciaVenda.getVendedor().getCpf())) {
+                vendasDoVendedor.add(referenciaVenda);
+            }
+        }
+        if (!vendasDoVendedor.isEmpty()) {
+            return vendasDoVendedor;
+        }
+        throw new Exception((vendedor.getNome() + " ainda não realizou nenhuma venda!"));
+    }
 }

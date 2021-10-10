@@ -111,6 +111,7 @@ public class Sistema {
                 }
                 if (opcaoDesejada == 8) {
                     String cpf = capturarDados("Digite o cpf do vendedor desejado: ").nextLine();
+                    System.out.println(ServicoVendas.pesquisarVendasDoVendedor(cpf));
                 }
                 if (opcaoDesejada == 9) {
                     finalizar = true;
