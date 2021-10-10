@@ -23,4 +23,21 @@ public class ServicoVendas {
         }
         return vendas;
     }
+
+    public static List<Venda> pesquisarComprasDoClientes(String cpf) throws Exception {
+
+        Cliente cliente = ServicoClientes.pesquisarCpfCliente(cpf);
+
+        List<Venda> comprasDoCliente = new ArrayList<>();
+
+        for (Venda referenciaVenda : vendas) {
+            if (cpf.equalsIgnoreCase(referenciaVenda.getCliente().getCpf())) {
+                comprasDoCliente.add(referenciaVenda);
+            }
+        }
+        if (!comprasDoCliente.isEmpty()) {
+            return comprasDoCliente;
+        }
+        throw new Exception((cliente.getNome() + " ainda não realizou nenhuma compra!"));
+    }
 }
