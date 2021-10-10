@@ -1,6 +1,9 @@
 package br.com.zup;
 
+import entities.Cliente;
+import entities.Vendedor;
 import services.ServicoClientes;
+import services.ServicoVendas;
 import services.ServicoVendedores;
 
 import java.util.Scanner;
@@ -53,5 +56,15 @@ public class Sistema {
         System.out.println("----------------------------------------------------");
         System.out.println("Cliente cadastrado com sucesso!");
         ServicoClientes.cadastrarCliente(nome, cpf, email);
+    }
+
+    public static void cadastrarVenda() throws Exception {
+        String cpfVendedor = capturarDados("Informe o cpf do vendedor responsável: ").nextLine();
+        Vendedor vendedor = ServicoVendedores.pesquisarCpfVendedor(cpfVendedor);
+        String cpfCliente = capturarDados("Informe o cpf do cliente: ").nextLine();
+        Cliente cliente = ServicoClientes.pesquisarCpfCliente(cpfCliente);
+        Double valorASerPago = capturarDados("Informe o valor da venda: R$ ").nextDouble();
+        ServicoVendas.cadastrarVenda(vendedor, cliente, valorASerPago);
+        System.out.println("Cadastro realizado com sucesso!");
     }
 }
