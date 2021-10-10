@@ -20,4 +20,13 @@ public class ServicoClientes {
         }
         return clientes;
     }
+
+    public static Cliente pesquisarCpfCliente(String cpf) throws Exception {
+        for (Cliente cliente : clientes) {
+            if (cpf.equalsIgnoreCase(cliente.getCpf())) {
+                return cliente;
+            }
+        }
+        throw new Exception("CPF não encontrado!");
+    }
 }
