@@ -29,12 +29,17 @@ public class ServicoVendedores {
     }
 
     public static Vendedor pesquisarCpfVendedor(String cpf) throws Exception {
-
         for (Vendedor vendedor : vendedores) {
             if (cpf.equalsIgnoreCase(vendedor.getCpf())) {
                 return vendedor;
             }
         }
         throw new Exception("CPF não encontrado!");
+    }
+
+    public static void validarEmailVendedor(String email) throws Exception {
+        if (!email.contains("@")) {
+            throw new Exception("Email inválido! insira o @");
+        }
     }
 }
