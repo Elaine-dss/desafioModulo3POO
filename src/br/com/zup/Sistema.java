@@ -67,4 +67,51 @@ public class Sistema {
         ServicoVendas.cadastrarVenda(vendedor, cliente, valorASerPago);
         System.out.println("Cadastro realizado com sucesso!");
     }
+
+    public static void executar() {
+        boolean finalizar = false;
+
+        while (!finalizar) {
+            try {
+                exibirMenu();
+                int opcaoDesejada = capturarDados("Digite um número referente a opção desejada: ").nextInt();
+
+                if (opcaoDesejada == 1) {
+                    cadastrarVendedor();
+                }
+                if (opcaoDesejada == 2) {
+                    cadastrarCliente();
+                }
+                if (opcaoDesejada == 3) {
+                    cadastrarVenda();
+                }
+                if (opcaoDesejada == 4) {
+                    System.out.println(ServicoVendas.getVendas());
+                    System.out.println("Fim de exibição!");
+                }
+                if (opcaoDesejada == 5) {
+                    System.out.println(ServicoVendedores.getVendedores());
+                    System.out.println("----------------------------------------------------");
+                    System.out.println("Fim de exibição!");
+                }
+                if (opcaoDesejada == 6) {
+                    System.out.println(ServicoClientes.getClientes());
+                    System.out.println("----------------------------------------------------");
+                    System.out.println("Fim de exibição!");
+                }
+                if (opcaoDesejada == 7) {
+                    String cpf = capturarDados("Digite o cpf do cliente desejado: ").nextLine();
+                }
+                if (opcaoDesejada == 8) {
+                    String cpf = capturarDados("Digite o cpf do vendedor desejado: ").nextLine();
+                }
+                if (opcaoDesejada == 9) {
+                    finalizar = true;
+                    System.out.println("Programa finalizado!");
+                }
+            } catch (Exception exception) {
+                System.out.println(exception.getMessage());
+            }
+        }
+    }
 }

@@ -15,13 +15,21 @@ public class ServicoClientes {
     }
 
     public static List<Cliente> getClientes() throws Exception {
+
         if (clientes.isEmpty()) {
             throw new Exception("Não encontramos nenhum cliente cadastrado!");
         }
+
+        System.out.println();
+        System.out.println("----------------------------------------------------");
+        System.out.println("|                Lista de clientes                 |");
+        System.out.println("----------------------------------------------------");
+
         return clientes;
     }
 
     public static Cliente pesquisarCpfCliente(String cpf) throws Exception {
+
         for (Cliente cliente : clientes) {
             if (cpf.equalsIgnoreCase(cliente.getCpf())) {
                 return cliente;

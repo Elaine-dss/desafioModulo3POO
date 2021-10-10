@@ -15,13 +15,21 @@ public class ServicoVendedores {
     }
 
     public static List<Vendedor> getVendedores() throws Exception {
+
         if (vendedores.isEmpty()){
             throw new Exception("Não encontramos nenhum vendedor cadastrado!");
         }
+
+        System.out.println();
+        System.out.println("----------------------------------------------------");
+        System.out.println("|                Lista de vendedores               |");
+        System.out.println("----------------------------------------------------");
+
         return vendedores;
     }
 
     public static Vendedor pesquisarCpfVendedor(String cpf) throws Exception {
+
         for (Vendedor vendedor : vendedores) {
             if (cpf.equalsIgnoreCase(vendedor.getCpf())) {
                 return vendedor;
