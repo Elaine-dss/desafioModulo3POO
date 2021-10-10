@@ -20,4 +20,13 @@ public class ServicoVendedores {
         }
         return vendedores;
     }
+
+    public static Vendedor pesquisarCpfVendedor(String cpf) throws Exception {
+        for (Vendedor vendedor : vendedores) {
+            if (cpf.equalsIgnoreCase(vendedor.getCpf())) {
+                return vendedor;
+            }
+        }
+        throw new Exception("CPF não encontrado!");
+    }
 }
