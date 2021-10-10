@@ -50,4 +50,12 @@ public class ServicoVendedores {
             }
         }
     }
+
+    public static void verificarDuplicidadeEmailVendedor(String email) throws Exception {
+        for (Vendedor vendedor : vendedores) {
+            if (email.equalsIgnoreCase(vendedor.getEmail())) {
+                throw new Exception("Email já cadastrado no sistema!");
+            }
+        }
+    }
 }

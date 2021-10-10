@@ -50,4 +50,12 @@ public class ServicoClientes {
             }
         }
     }
+
+    public static void verificarDuplicidadeEmailCliente(String email) throws Exception {
+        for (Cliente cliente : clientes) {
+            if (email.equalsIgnoreCase(cliente.getEmail())) {
+                throw new Exception("Email já cadastrado no sistema!");
+            }
+        }
+    }
 }
