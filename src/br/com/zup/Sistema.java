@@ -41,6 +41,9 @@ public class Sistema {
         String cpf = capturarDados("|  CPF: ").nextLine();
         String email = capturarDados("|  Email: ").nextLine();
         System.out.println("----------------------------------------------------");
+        ServicoVendedores.validarEmailVendedor(email);
+        ServicoVendedores.verificarDuplicidadeCpfVendedor(cpf);
+        ServicoVendedores.verificarDuplicidadeEmailVendedor(email);
         System.out.println("Vendedor cadastrado com sucesso!");
         ServicoVendedores.cadastrarVendedor(nome,cpf,email);
     }
@@ -54,6 +57,9 @@ public class Sistema {
         String cpf = capturarDados("|  CPF: ").nextLine();
         String email = capturarDados("|  Email: ").nextLine();
         System.out.println("----------------------------------------------------");
+        ServicoClientes.validarEmailCliente(email);
+        ServicoClientes.verificarDuplicidadeCpfCliente(cpf);
+        ServicoClientes.verificarDuplicidadeEmailCliente(email);
         System.out.println("Cliente cadastrado com sucesso!");
         ServicoClientes.cadastrarCliente(nome, cpf, email);
     }
