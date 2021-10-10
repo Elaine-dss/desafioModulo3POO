@@ -1,5 +1,7 @@
 package br.com.zup;
 
+import services.ServicoVendedores;
+
 import java.util.Scanner;
 
 public class Sistema {
@@ -24,5 +26,18 @@ public class Sistema {
         System.out.println("|  Digite 8 para pesquisar vendas de um vendendor  |");
         System.out.println("|  Digite 9 para sair                              |");
         System.out.println("----------------------------------------------------");
+    }
+
+    public static void cadastrarVendedor() throws Exception {
+        System.out.println();
+        System.out.println("----------------------------------------------------");
+        System.out.println("|  Informe os dados do vendedor:");
+        System.out.println("----------------------------------------------------");
+        String nome = capturarDados("|  Nome: ").nextLine();
+        String cpf = capturarDados("|  CPF: ").nextLine();
+        String email = capturarDados("|  Email: ").nextLine();
+        System.out.println("----------------------------------------------------");
+        System.out.println("Vendedor cadastrado com sucesso!");
+        ServicoVendedores.cadastrarVendedor(nome,cpf,email);
     }
 }
