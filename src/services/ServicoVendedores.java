@@ -42,4 +42,12 @@ public class ServicoVendedores {
             throw new Exception("Email inválido! insira o @");
         }
     }
+
+    public static void verificarDuplicidadeCpfVendedor(String cpf) throws Exception {
+        for (Vendedor vendedor : vendedores) {
+            if (cpf.equalsIgnoreCase(vendedor.getCpf())) {
+                throw new Exception("CPF já cadastrado no sistema!");
+            }
+        }
+    }
 }
