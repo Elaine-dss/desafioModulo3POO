@@ -7,15 +7,17 @@ public class Venda {
     private Vendedor vendedor;
     private Cliente cliente;
     private Double valorDoPagamento;
+    private String codigoDaVenda;
     private final Date data = new Date();
     private String dataDeRegistro;
 
     public Venda() {}
 
-    public Venda(Vendedor vendedor, Cliente cliente, Double valorDoPagamento) {
+    public Venda(Vendedor vendedor, Cliente cliente, Double valorDoPagamento, String codigoDaVenda) {
         this.vendedor = vendedor;
         this.cliente = cliente;
         this.valorDoPagamento = valorDoPagamento;
+        this.codigoDaVenda = codigoDaVenda;
     }
 
     public Vendedor getVendedor() {
@@ -47,6 +49,8 @@ public class Venda {
         return dataFormatada.format(data);
     }
 
+    public String getCodigoDaVenda() { return codigoDaVenda; }
+
     public String getDataDeRegistro() {
         return dataDeRegistro;
     }
@@ -62,6 +66,7 @@ public class Venda {
                 + "\n|"
                 + "\n|  Valor: R$ " + valorDoPagamento
                 + "\n|  Data de Registro: " + getDataDeRegistro()
+                + "\n|  Código da venda: " + codigoDaVenda
                 + "\n|"
                 + "\n|  Dados do cliente:"
                 + getCliente()

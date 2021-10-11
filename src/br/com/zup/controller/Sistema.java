@@ -1,6 +1,7 @@
 package br.com.zup.controller;
 
 import br.com.zup.entitie.Cliente;
+import br.com.zup.entitie.Venda;
 import br.com.zup.entitie.Vendedor;
 import br.com.zup.service.ServicoClientes;
 import br.com.zup.service.ServicoVendas;
@@ -31,6 +32,7 @@ public class Sistema {
         System.out.println("|  Digite 8 para pesquisar vendas de um vendendor  |");
         System.out.println("|  Digite 9 para remover um vendedor do cadastro   |");
         System.out.println("|  Digite 10 para remover um cliente do cadastro   |");
+        System.out.println("|  Digite 11 para desfazer uma venda realizada     |");  //basicamente vou estar removendo tbm;
         System.out.println("|  Digite 0 para sair                              |");
         System.out.println("----------------------------------------------------");
     }
@@ -73,7 +75,8 @@ public class Sistema {
         String cpfCliente = capturarDados("Informe o cpf do cliente: ").nextLine();
         Cliente cliente = ServicoClientes.pesquisarCpfCliente(cpfCliente);
         Double valorASerPago = capturarDados("Informe o valor da venda: R$ ").nextDouble();
-        ServicoVendas.cadastrarVenda(vendedor, cliente, valorASerPago);
+        String codigoDaVenda = capturarDados("Informe o código da venda: ").nextLine();
+        ServicoVendas.cadastrarVenda(vendedor, cliente, valorASerPago, codigoDaVenda);
         System.out.println("Cadastro realizado com sucesso!");
     }
 
@@ -128,6 +131,11 @@ public class Sistema {
                     String cpf = capturarDados("Informe o cpf do cliente desejado: ").nextLine();
                     ServicoClientes.pesquisarCpfCliente(cpf);
                     ServicoClientes.removerCliente(cpf);
+                }
+                else if (opcaoDesejada == 11) {
+                    String codigoDaVenda = capturarDados("Informe o código da venda desejada: ").nextLine();
+                    Venda venda = ServicoVendas.validarCodigoDaVenda(codigoDaVenda);
+                    ServicoVendas.removerVenda(venda);
                 }
                 else if (opcaoDesejada == 0) {
                     finalizar = true;
