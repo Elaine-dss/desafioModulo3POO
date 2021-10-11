@@ -1,6 +1,6 @@
 package br.com.zup;
 
-import br.com.zup.util.Sistema;
+import br.com.zup.controller.Sistema;
 
 public class Main {
 

@@ -1,4 +1,4 @@
-package br.com.zup.util;
+package br.com.zup.controller;
 
 import br.com.zup.entitie.Cliente;
 import br.com.zup.entitie.Vendedor;
