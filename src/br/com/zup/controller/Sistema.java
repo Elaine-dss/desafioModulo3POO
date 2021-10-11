@@ -5,6 +5,7 @@ import br.com.zup.entitie.Vendedor;
 import br.com.zup.service.ServicoClientes;
 import br.com.zup.service.ServicoVendas;
 import br.com.zup.service.ServicoVendedores;
+import br.com.zup.util.Validacao;
 
 import java.util.Scanner;
 
@@ -41,7 +42,7 @@ public class Sistema {
         String cpf = capturarDados("|  CPF: ").nextLine();
         String email = capturarDados("|  Email: ").nextLine();
         System.out.println("----------------------------------------------------");
-        ServicoVendedores.validarEmailVendedor(email);
+        Validacao.validarEmail(email);
         ServicoVendedores.verificarDuplicidadeCpfVendedor(cpf);
         ServicoVendedores.verificarDuplicidadeEmailVendedor(email);
         System.out.println("Vendedor cadastrado com sucesso!");
@@ -57,7 +58,7 @@ public class Sistema {
         String cpf = capturarDados("|  CPF: ").nextLine();
         String email = capturarDados("|  Email: ").nextLine();
         System.out.println("----------------------------------------------------");
-        ServicoClientes.validarEmailCliente(email);
+        Validacao.validarEmail(email);
         ServicoClientes.verificarDuplicidadeCpfCliente(cpf);
         ServicoClientes.verificarDuplicidadeEmailCliente(email);
         System.out.println("Cliente cadastrado com sucesso!");

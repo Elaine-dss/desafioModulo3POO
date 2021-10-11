@@ -37,12 +37,6 @@ public class ServicoVendedores {
         throw new Exception("CPF não encontrado!");
     }
 
-    public static void validarEmailVendedor(String email) throws Exception {
-        if (!email.contains("@")) {
-            throw new Exception("Email inválido! insira o @");
-        }
-    }
-
     public static void verificarDuplicidadeCpfVendedor(String cpf) throws Exception {
         for (Vendedor vendedor : vendedores) {
             if (cpf.equalsIgnoreCase(vendedor.getCpf())) {
