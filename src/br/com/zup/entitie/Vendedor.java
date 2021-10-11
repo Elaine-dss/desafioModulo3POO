@@ -1,4 +1,4 @@
-package entities;
+package br.com.zup.entitie;
 
 public class Vendedor extends Pessoa {
 

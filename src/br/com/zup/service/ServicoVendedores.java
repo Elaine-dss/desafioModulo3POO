@@ -1,6 +1,6 @@
-package services;
+package br.com.zup.service;
 
-import entities.Vendedor;
+import br.com.zup.entitie.Vendedor;
 
 import java.util.ArrayList;
 import java.util.List;

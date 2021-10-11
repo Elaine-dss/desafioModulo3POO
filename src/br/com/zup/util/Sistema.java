@@ -1,10 +1,10 @@
-package br.com.zup;
+package br.com.zup.util;
 
-import entities.Cliente;
-import entities.Vendedor;
-import services.ServicoClientes;
-import services.ServicoVendas;
-import services.ServicoVendedores;
+import br.com.zup.entitie.Cliente;
+import br.com.zup.entitie.Vendedor;
+import br.com.zup.service.ServicoClientes;
+import br.com.zup.service.ServicoVendas;
+import br.com.zup.service.ServicoVendedores;
 
 import java.util.Scanner;
 
