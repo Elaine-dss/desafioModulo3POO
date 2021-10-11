@@ -37,6 +37,11 @@ public class ServicoClientes {
         throw new Exception("CPF não encontrado!");
     }
 
+    public static void removerCliente(String cpf) {
+        clientes.removeIf(cliente -> cpf.equalsIgnoreCase(cliente.getCpf()));
+        System.out.println("Cliente removido com sucesso!");
+    }
+
     public static void verificarDuplicidadeCpfCliente(String cpf) throws Exception {
         for (Cliente cliente : clientes) {
             if (cpf.equalsIgnoreCase(cliente.getCpf())) {

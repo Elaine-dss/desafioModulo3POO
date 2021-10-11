@@ -21,7 +21,7 @@ public class Sistema {
         System.out.println("----------------------------------------------------");
         System.out.println("|                  MENU PRINCIPAL                  |");
         System.out.println("----------------------------------------------------");
-        System.out.println("|  Digite 1 para cadastrar um vendendor           |");
+        System.out.println("|  Digite 1 para cadastrar um vendendor            |");
         System.out.println("|  Digite 2 para cadastrar um cliente              |");
         System.out.println("|  Digite 3 para cadastrar uma venda               |");
         System.out.println("|  Digite 4 para listar vendas cadastradas         |");
@@ -29,7 +29,9 @@ public class Sistema {
         System.out.println("|  Digite 6 para listar clientes cadastradas       |");
         System.out.println("|  Digite 7 para pesquisar compras de um cliente   |");
         System.out.println("|  Digite 8 para pesquisar vendas de um vendendor  |");
-        System.out.println("|  Digite 9 para sair                              |");
+        System.out.println("|  Digite 9 para remover um vendedor do cadastro   |");
+        System.out.println("|  Digite 10 para remover um cliente do cadastro   |");
+        System.out.println("|  Digite 0 para sair                              |");
         System.out.println("----------------------------------------------------");
     }
 
@@ -108,16 +110,26 @@ public class Sistema {
                     System.out.println("Process finished");
                 }
                 else if (opcaoDesejada == 7) {
-                    String cpf = capturarDados("Digite o cpf do cliente desejado: ").nextLine();
+                    String cpf = capturarDados("Informe o cpf do cliente desejado: ").nextLine();
                     System.out.println(ServicoVendas.pesquisarComprasDoClientes(cpf));
                     System.out.println("Process finished");
                 }
                 else if (opcaoDesejada == 8) {
-                    String cpf = capturarDados("Digite o cpf do vendedor desejado: ").nextLine();
+                    String cpf = capturarDados("Informe o cpf do vendedor desejado: ").nextLine();
                     System.out.println(ServicoVendas.pesquisarVendasDoVendedor(cpf));
                     System.out.println("Process finished");
                 }
                 else if (opcaoDesejada == 9) {
+                    String cpf = capturarDados("Informe o cpf do vendedor desejado: ").nextLine();
+                    ServicoVendedores.pesquisarCpfVendedor(cpf);
+                    ServicoVendedores.removerVendedor(cpf);
+                }
+                else if (opcaoDesejada == 10) {
+                    String cpf = capturarDados("Informe o cpf do cliente desejado: ").nextLine();
+                    ServicoClientes.pesquisarCpfCliente(cpf);
+                    ServicoClientes.removerCliente(cpf);
+                }
+                else if (opcaoDesejada == 0) {
                     finalizar = true;
                     System.out.println("Até mais!");
                 }
