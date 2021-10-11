@@ -20,7 +20,7 @@ public class Sistema {
         System.out.println("----------------------------------------------------");
         System.out.println("|                  MENU PRINCIPAL                  |");
         System.out.println("----------------------------------------------------");
-        System.out.println("|  Digite 1 para cadastrar uma vendendor           |");
+        System.out.println("|  Digite 1 para cadastrar um vendendor           |");
         System.out.println("|  Digite 2 para cadastrar um cliente              |");
         System.out.println("|  Digite 3 para cadastrar uma venda               |");
         System.out.println("|  Digite 4 para listar vendas cadastradas         |");
@@ -75,6 +75,7 @@ public class Sistema {
     }
 
     public static void executar() {
+
         boolean finalizar = false;
 
         while (!finalizar) {
@@ -85,38 +86,44 @@ public class Sistema {
                 if (opcaoDesejada == 1) {
                     cadastrarVendedor();
                 }
-                if (opcaoDesejada == 2) {
+                else if (opcaoDesejada == 2) {
                     cadastrarCliente();
                 }
-                if (opcaoDesejada == 3) {
+                else if (opcaoDesejada == 3) {
                     cadastrarVenda();
                 }
-                if (opcaoDesejada == 4) {
+                else if (opcaoDesejada == 4) {
                     System.out.println(ServicoVendas.getVendas());
-                    System.out.println("Fim de exibição!");
+                    System.out.println("Process finished");
                 }
-                if (opcaoDesejada == 5) {
+                else if (opcaoDesejada == 5) {
                     System.out.println(ServicoVendedores.getVendedores());
                     System.out.println("----------------------------------------------------");
-                    System.out.println("Fim de exibição!");
+                    System.out.println("Process finished");
                 }
-                if (opcaoDesejada == 6) {
+                else if (opcaoDesejada == 6) {
                     System.out.println(ServicoClientes.getClientes());
                     System.out.println("----------------------------------------------------");
-                    System.out.println("Fim de exibição!");
+                    System.out.println("Process finished");
                 }
-                if (opcaoDesejada == 7) {
+                else if (opcaoDesejada == 7) {
                     String cpf = capturarDados("Digite o cpf do cliente desejado: ").nextLine();
                     System.out.println(ServicoVendas.pesquisarComprasDoClientes(cpf));
+                    System.out.println("Process finished");
                 }
-                if (opcaoDesejada == 8) {
+                else if (opcaoDesejada == 8) {
                     String cpf = capturarDados("Digite o cpf do vendedor desejado: ").nextLine();
                     System.out.println(ServicoVendas.pesquisarVendasDoVendedor(cpf));
+                    System.out.println("Process finished");
                 }
-                if (opcaoDesejada == 9) {
+                else if (opcaoDesejada == 9) {
                     finalizar = true;
-                    System.out.println("Programa finalizado!");
+                    System.out.println("Até mais!");
                 }
+                else {
+                    System.out.println("Opção inválida!");
+                }
+
             } catch (Exception exception) {
                 System.out.println(exception.getMessage());
             }
